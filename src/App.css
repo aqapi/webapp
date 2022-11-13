@@ -16,12 +16,20 @@
 }
 
 .App-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #21262f;
   min-height: 80vh;
   max-height: 85vh;
 }
 
 .App-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: static;
   bottom: 0;
   margin: 0;
@@ -29,6 +37,23 @@
   background-color: #1e2024;
   min-height: 10vh;
   max-height: 10vh;
+}
+
+.App-footer > p {
+  color: white;
+}
+
+.mapa {
+  max-width: 60vw;
+  max-height: 60vh;
+}
+
+a {
+  color: #00b3ff;
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 .App-link {
