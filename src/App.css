@@ -14,14 +14,31 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #1e2024;
+  min-height: 5vh;
+  max-height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-main {
+  background-color: #21262f;
+  min-height: 80vh;
+  max-height: 85vh;
+}
+
+.App-footer {
+  position: static;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #1e2024;
+  min-height: 10vh;
+  max-height: 10vh;
 }
 
 .App-link {
