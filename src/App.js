@@ -1,15 +1,29 @@
 import React, {useState} from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap} from 'react-leaflet';
 import './App.css';
+import stacje from './stations.json';
 import { Icon } from "leaflet";
 
 function MainMap(props) {
+  const stations = Array.from(stacje.stacje);
+  console.log(typeof(stations))
   return (
-    <MapContainer center={[52.2, 19.2]} zoom={8} scrollWheelZoom={true}>
+    <MapContainer center={[52.2, 19.2]} zoom={5} scrollWheelZoom={true}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
+
+      {stations.map((station, idx) => (
+        <Marker
+          position={[parseFloat(station.gegrLat), parseFloat(station.gegrLon)]}
+          key={idx}
+        >
+          <Popup>
+            <p>This is a marker</p>
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }
