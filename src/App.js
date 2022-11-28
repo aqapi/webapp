@@ -20,7 +20,7 @@ function MainMap(props) {
           key={idx}
         >
           <Popup>
-            <p>Stacja w {station.stationName}</p>
+            <p>Stacja Pogodowa w {station.stationName}</p>
             <p>Województwo {station.city.commune.provinceName}</p>
           </Popup>
         </Marker>
