@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap} from 'react-leaflet';
+// import React, {useState} from "react";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import './App.css';
 import stacje from './stations.json';
-import { Icon } from "leaflet";
+// import { Icon } from "leaflet";
 
 function MainMap(props) {
   const stations = Array.from(stacje.stacje);
