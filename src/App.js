@@ -8,7 +8,7 @@ function MainMap(props) {
   const stations = Array.from(stacje.stacje);
   console.log(typeof(stations))
   return (
-    <MapContainer center={[52.2, 19.2]} zoom={5} scrollWheelZoom={true}>
+    <MapContainer center={[52.2, 19.2]} zoom={5} minZoom={5} maxZoom={16} scrollWheelZoom={true}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
