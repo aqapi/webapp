@@ -1,14 +1,27 @@
 // import React, {useState} from "react";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useMapEvents } from 'react-leaflet/hooks';
 import './App.css';
 import stacje from './stations.json';
 // import { Icon } from "leaflet";
+
+function MyComponent() {
+  const map = useMapEvents({
+    click: (e) => {
+      console.log(map.getBounds());
+      console.log(e.latlng.lat, e.latlng.lng);
+    },
+  })
+  return null
+}
 
 function MainMap(props) {
   const stations = Array.from(stacje.stacje);
   console.log(typeof(stations))
   return (
-    <MapContainer center={[52.2, 19.2]} zoom={5} minZoom={5} maxZoom={16} scrollWheelZoom={true}>
+    <MapContainer center={[52.2, 19.2]} maxBounds={[[57,28],[47,10]]} zoom={5} minZoom={5} maxZoom={16} 
+    scrollWheelZoom={true}>
+      <MyComponent />
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
