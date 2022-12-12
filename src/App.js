@@ -1,5 +1,5 @@
 // import React, {useState} from "react";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 import { useMapEvents } from 'react-leaflet/hooks';
 import './App.css';
 import stacje from './stations.json';
@@ -32,6 +32,9 @@ function MainMap(props) {
           position={[parseFloat(station.gegrLat), parseFloat(station.gegrLon)]}
           key={idx}
         >
+          <Tooltip>
+            <p>{station.stationName}</p>
+          </Tooltip>
           <Popup>
             <p>Stacja Pogodowa w {station.stationName}</p>
             <p>Województwo {station.city.commune.provinceName}</p>
