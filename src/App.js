@@ -4,8 +4,8 @@ import { useMapEvents } from 'react-leaflet/hooks';
 import './App.css';
 // import stacje from './stations.json';
 import React, {useEffect, useState} from "react"
-let instruments = [];
-let curr;
+// let instruments = [];
+// let curr;
 
 function MyComponent() {
   const map = useMapEvents({
@@ -20,8 +20,8 @@ function MyComponent() {
 
 
 function MainMap(props) {
-  const [currentStation, setCurrentStation] = useState();
-  const [err, setErr] = useState('');
+  // const [currentStation, setCurrentStation] = useState();
+  // const [err, setErr] = useState('');
   
   
   const [stations, setStations] = useState([]);
