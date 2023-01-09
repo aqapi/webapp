@@ -26,7 +26,7 @@ function MainMap(props) {
   
   const [stations, setStations] = useState([]);
   useEffect(() => {
-    const url = "pjp-api/rest/station/findAll";
+    const url = "https://api.gios.gov.pl/pjp-api/rest/station/findAll";
 
     const fetchData = async () => {
       try {
@@ -64,7 +64,7 @@ function MainMap(props) {
               setCurrentStation(JSON.stringify(e.target.options.data));
               curr = JSON.stringify(e.target.options.data)
               console.log(e.target.options.data, currentStation)
-              let url = "pjp-api/rest/station/sensors/" + curr
+              let url = "https://api.gios.gov.pl/pjp-api/rest/station/sensors/" + curr
               console.log(url)
               try {
                 const response = await fetch(url)
