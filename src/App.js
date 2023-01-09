@@ -2,8 +2,8 @@
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 import { useMapEvents } from 'react-leaflet/hooks';
 import './App.css';
-import stacje from './stations.json';
-// import { Icon } from "leaflet";
+// import stacje from './stations.json';
+import React, {useEffect, useState} from "react"
 
 function MyComponent() {
   const map = useMapEvents({
@@ -16,8 +16,26 @@ function MyComponent() {
 }
 
 function MainMap(props) {
-  const stations = Array.from(stacje.stacje);
-  console.log(typeof(stations))
+    const [stations, setStations] = useState([]);
+    useEffect(() => {
+      const url = "pjp-api/rest/station/findAll";
+  
+      const fetchData = async () => {
+        try {
+          const response = await fetch(url);
+          const json = await response.json();
+          console.log(json);
+          // const data = json.array.map((data) => {
+          setStations(json);
+          // });
+        } catch (error) {
+          console.log("error", error);
+        }
+      };
+  
+      fetchData();
+    },[]);
+  
   return (
     <MapContainer center={[52.2, 19.2]} maxBounds={[[57,28],[47,10]]} zoom={5} minZoom={5} maxZoom={16} 
     scrollWheelZoom={true}>
@@ -49,7 +67,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Aqapi</h1>
+        <h1>Aqapi - dane jakości powietrza</h1>
       </header>
       <main className="App-main">
         <MainMap></MainMap>
