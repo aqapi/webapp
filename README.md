@@ -1,3 +1,25 @@
+# Projekt frontendu aplikacji webowej z użyciem React.js oraz React-Leaflet
+
+## Użyte technologie:
+
+- React.js
+- React-Leaflet
+- Leaflet
+- OpenStreetMaps API
+
+## Funkcje i Komponenty React-Leaflet:
+
+- MapContainer - [Leaflet reference](https://leafletjs.com/reference.html#mapcontainer)
+- TileLayer - [Leaflet reference](https://leafletjs.com/reference.html#tilelayer)
+- Marker - [Leaflet reference](https://leafletjs.com/reference.html#marker)
+- Popup - [Leaflet reference](https://leafletjs.com/reference.html#popup)
+- Tooltip - [Leaflet reference](https://leafletjs.com/reference.html#tooltip)
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
