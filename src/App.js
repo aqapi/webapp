@@ -4,6 +4,8 @@ import { useMapEvents } from 'react-leaflet/hooks';
 import './App.css';
 // import stacje from './stations.json';
 import React, {useEffect, useState} from "react"
+let instruments = [];
+let curr;
 
 function MyComponent() {
   const map = useMapEvents({
@@ -15,8 +17,13 @@ function MyComponent() {
   return null
 }
 
+
+
 function MainMap(props) {
   const [currentStation, setCurrentStation] = useState();
+  const [err, setErr] = useState('');
+  
+  
   const [stations, setStations] = useState([]);
   useEffect(() => {
     const url = "pjp-api/rest/station/findAll";
@@ -53,10 +60,30 @@ function MainMap(props) {
           key={idx}
           eventHandlers={{
             click: async (e) => {
-              setCurrentStation(e.target.options.data);
+              
+              setCurrentStation(JSON.stringify(e.target.options.data));
+              curr = JSON.stringify(e.target.options.data)
               console.log(e.target.options.data, currentStation)
-              console.log(await fetch('pjp-api/rest/station'))
-              e.target.setPopupContent('coś')
+              let url = "pjp-api/rest/station/sensors/" + curr
+              console.log(url)
+              try {
+                const response = await fetch(url)
+
+                if (!response.ok) {
+                  throw new Error(`Error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                instruments = result;
+                e.target.setPopupContent(JSON.stringify(instruments))
+                console.log(JSON.stringify(instruments));
+              } catch (err) {
+                setErr(err.message);
+                
+              } finally {
+                console.log(err)
+              }
             },
           }}
         >
