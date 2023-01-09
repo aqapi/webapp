@@ -26,7 +26,7 @@ function MainMap(props) {
   
   const [stations, setStations] = useState([]);
   useEffect(() => {
-    const url = "pjp-api/rest/station/findAll";
+    const url = "station/all";
 
     const fetchData = async () => {
       try {
@@ -58,34 +58,35 @@ function MainMap(props) {
           data={station.id}
           position={[parseFloat(station.gegrLat), parseFloat(station.gegrLon)]}
           key={idx}
-          eventHandlers={{
-            click: async (e) => {
+          // eventHandlers={{
+          //   click: async (e) => {
               
-              setCurrentStation(JSON.stringify(e.target.options.data));
-              curr = JSON.stringify(e.target.options.data)
-              console.log(e.target.options.data, currentStation)
-              let url = "pjp-api/rest/station/sensors/" + curr
-              console.log(url)
-              try {
-                const response = await fetch(url)
+          //     setCurrentStation(JSON.stringify(e.target.options.data));
+          //     curr = JSON.stringify(e.target.options.data)
+          //     console.log(e.target.options.data, currentStation)
+          //     let url = "pjp-api/rest/station/sensors/" + curr
+          //     console.log(url)
+          //     try {
+          //       const response = await fetch(url)
 
-                if (!response.ok) {
-                  throw new Error(`Error! status: ${response.status}`);
-                }
+          //       if (!response.ok) {
+          //         throw new Error(`Error! status: ${response.status}`);
+          //       }
 
-                const result = await response.json();
+          //       const result = await response.json();
 
-                instruments = result;
-                e.target.setPopupContent(JSON.stringify(instruments))
-                console.log(JSON.stringify(instruments));
-              } catch (err) {
-                setErr(err.message);
+          //       instruments = result;
+          //       instruments = JSON.stringify(instruments).replaceAll(',', '\n')
+          //       e.target.setPopupContent(instruments)
+          //       console.log(instruments);
+          //     } catch (err) {
+          //       setErr(err.message);
                 
-              } finally {
-                console.log(err)
-              }
-            },
-          }}
+          //     } finally {
+          //       console.log(err)
+          //     }
+          //   },
+          // }}
         >
           <Tooltip>
             <p>ID: {station.id}</p>
