@@ -16,25 +16,26 @@ function MyComponent() {
 }
 
 function MainMap(props) {
-    const [stations, setStations] = useState([]);
-    useEffect(() => {
-      const url = "pjp-api/rest/station/findAll";
-  
-      const fetchData = async () => {
-        try {
-          const response = await fetch(url);
-          const json = await response.json();
-          console.log(json);
-          // const data = json.array.map((data) => {
-          setStations(json);
-          // });
-        } catch (error) {
-          console.log("error", error);
-        }
-      };
-  
-      fetchData();
-    },[]);
+  const [currentStation, setCurrentStation] = useState();
+  const [stations, setStations] = useState([]);
+  useEffect(() => {
+    const url = "pjp-api/rest/station/findAll";
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        console.log(json);
+        // const data = json.array.map((data) => {
+        setStations(json);
+        // });
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  },[]);
   
   return (
     <MapContainer center={[52.2, 19.2]} maxBounds={[[57,28],[47,10]]} zoom={5} minZoom={5} maxZoom={16} 
@@ -47,11 +48,21 @@ function MainMap(props) {
 
       {stations.map((station, idx) => (
         <Marker
+          data={station.id}
           position={[parseFloat(station.gegrLat), parseFloat(station.gegrLon)]}
           key={idx}
+          eventHandlers={{
+            click: async (e) => {
+              setCurrentStation(e.target.options.data);
+              console.log(e.target.options.data)
+              console.log(await fetch(''))
+              e.target.setPopupContent('coś')
+            },
+          }}
         >
           <Tooltip>
-            <p>{station.stationName}</p>
+            <p>ID: {station.id}</p>
+            <p>Nazwa: {station.stationName}</p>
           </Tooltip>
           <Popup>
             <p>Stacja Pogodowa w {station.stationName}</p>
