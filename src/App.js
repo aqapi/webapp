@@ -54,8 +54,8 @@ function MainMap(props) {
           eventHandlers={{
             click: async (e) => {
               setCurrentStation(e.target.options.data);
-              console.log(e.target.options.data)
-              console.log(await fetch(''))
+              console.log(e.target.options.data, currentStation)
+              console.log(await fetch('pjp-api/rest/station'))
               e.target.setPopupContent('coś')
             },
           }}
