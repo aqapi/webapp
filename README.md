@@ -2,18 +2,28 @@
 
 ## Użyte technologie:
 
-- React.js
-- React-Leaflet
-- Leaflet
-- OpenStreetMaps API
+- [React.js](https://reactjs.org/docs/getting-started.html)
+- [React-Leaflet](https://react-leaflet.js.org/)
+- [Leaflet](https://leafletjs.com/)
+- [OpenStreetMaps API](https://wiki.openstreetmap.org/wiki/API)
 
-## Funkcje i Komponenty React-Leaflet:
+## Funkcje i komponenty React-Leaflet:
 
-- MapContainer - [Leaflet reference](https://leafletjs.com/reference.html#mapcontainer)
-- TileLayer - [Leaflet reference](https://leafletjs.com/reference.html#tilelayer)
-- Marker - [Leaflet reference](https://leafletjs.com/reference.html#marker)
-- Popup - [Leaflet reference](https://leafletjs.com/reference.html#popup)
-- Tooltip - [Leaflet reference](https://leafletjs.com/reference.html#tooltip)
+- MapContainer - [odnośnik do Leaflet](https://leafletjs.com/reference.html#mapcontainer)
+- TileLayer - [odnośnik do Leaflet](https://leafletjs.com/reference.html#tilelayer)
+- Marker - [odnośnik do Leaflet](https://leafletjs.com/reference.html#marker)
+- Popup - [odnośnik do Leaflet](https://leafletjs.com/reference.html#popup)
+- Tooltip - [odnośnik do Leaflet](https://leafletjs.com/reference.html#tooltip)
+- useMapEvents
+
+## Funkcje i komponenty React:
+
+- useEffect - [odnośnik do React](https://reactjs.org/docs/hooks-effect.html)
+- useState - [odnośnik do React](https://reactjs.org/docs/hooks-state.html)
+
+## Funkcje i komponenty React własne
+
+- MainMap - komponent zajmujący się całym wygenerowaniem mapy i jej elementów. Zawiera w sobie MapContainer, TileLayer, Marker, Popup, Tooltip z pakietu React-Leaflet
 
 
 
