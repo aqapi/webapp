@@ -1,5 +1,8 @@
 # Projekt frontendu aplikacji webowej z użyciem React.js oraz React-Leaflet
 
+Celem projektu było stworzenie aplikacji webowej za pomocą react oraz serwisu udostępniającego dane map, by zwizualizować dane na temat jakosci powietrza w Polsce.
+Żródłem danych na temat jakości powietrza jest [GIOŚ](https://powietrze.gios.gov.pl/pjp/content/api). Dostawcą map jest OpenStreetMaps, a biblioteka generująca mapę na stronie i umożliwiająca jej edycję to Leaflet.
+
 ## Użyte technologie:
 
 - [React.js](https://reactjs.org/docs/getting-started.html)
