@@ -26,7 +26,7 @@ function MainMap(props) {
   
   const [stations, setStations] = useState([]);
   useEffect(() => {
-    const url = "station/all";
+    const url = "https://api.aqapi.cloud/station/all";
 
     const fetchData = async () => {
       try {
